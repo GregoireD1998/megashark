@@ -27,6 +27,11 @@ class CreateMovies extends AbstractMigration
             'limit' => 11,
             'null' => false,
         ]);
+        $table->addColumn('YearOfRelease', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
