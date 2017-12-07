@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Room $room
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-3 medium-8 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Room'), ['action' => 'edit', $room->id]) ?> </li>
@@ -15,28 +15,50 @@
         <li><?= $this->Html->link(__('New Showtime'), ['controller' => 'Showtimes', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="rooms view large-9 medium-8 columns content">
+<div class="rooms view large-9 medium-9 columns content">
     <h3><?= h($room->name) ?></h3>
     <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($room->name) ?></td>
+    
+        <thead>
+            <tr>
+                <th scope="col"><?= $this->Paginator->sort('Horaires') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('lundi') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('mardi') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('mercredi') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('jeudi') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('vendredi') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('samedi') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('dimanche') ?></th>
+            </tr>
+        </thead>
+        
+         <tr >
+            <td>10h</td> 
+            <!-- 
+                $trouve=$this->Showtimes->Rooms->find("id");
+                echo($trouve);
+                
+            -->    
+
+        
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($room->id) ?></td>
+            <td>12h</td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Capacity') ?></th>
-            <td><?= $this->Number->format($room->capacity) ?></td>
+            <td>14h</td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($room->created) ?></td>
+            <td>16h</td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($room->modified) ?></td>
+            <td>18h</td>
+        </tr>
+        <tr>
+            <td>20h</td>
+        </tr>
+        <tr>
+            <td>22h</td>
         </tr>
     </table>
     <div class="related">

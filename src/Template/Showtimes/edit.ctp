@@ -20,7 +20,7 @@
     <?= $this->Form->create($showtime) ?>
     <fieldset>
         <legend><?= __('Edit Showtime') ?></legend>
-        <?php
+        <?php 
             echo $this->Form->control('movie_id');
             echo $this->Form->control('room_id');
             echo $this->Form->control('start');
