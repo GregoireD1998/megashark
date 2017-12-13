@@ -37,9 +37,15 @@ class RoomsController extends AppController
         $room = $this->Rooms->get($id, [
             'contain' => []
         ]);
+        $showtime = $this->Rooms->Showtimes->find()->contain(['Movies','Rooms'])
+        ->where(['room_id'=>$id])
+        ->where(['start >='=>new \DateTime('monday this week')])
+        ->where(['start <='=>new \DateTime('sunday this week')]);
 
         $this->set('room', $room);
         $this->set('_serialize', ['room']);
+        $this->set('showtimes', $showtime);
+       
     }
 
     /**

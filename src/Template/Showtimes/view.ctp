@@ -44,5 +44,5 @@
             <th scope="row"><?= __('Modified') ?></th>
             <td><?= h($showtime->modified) ?></td>
         </tr>
-    </table>
+                
 </div>
