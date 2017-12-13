@@ -18,20 +18,41 @@
 <div class="rooms view large-9 medium-9 columns content">
     <h3><?= h($room->name) ?></h3>
     <table class="vertical-table">
-  
-       <table>        
-
-         <?php foreach ($showtimes as $showtime): ?>
-         
-         <tr>
-        
-            <td><?= $showtime->movie->name ?></td>
-            <td><?= h($showtime->start->format('H:i')) ?></td>
-            <td><?= h($showtime->end->format('H:i')) ?></td>
-        
-         </tr>
-         
-         <?php endforeach; ?>
     
-        </table>
+        <table>
+        <thead>
+        <tr>
+            <th scope="col">Lun</th>
+            <th scope="col">Mar</th>
+            <th scope="col">Mer</th>
+            <th scope="col">Jeu</th>
+            <th scope="col">Vend</th>
+            <th scope="col">Sam</th>
+            <th scope="col">Dim</th>
+        </tr>
+        </thead>    
+    
+   <?php for($i=1;$i<=7;$i++){?>
+   <td>
+    <table>
+        <?php foreach ($showtimes as $showtime): 
+        
+        $test = ($showtime->start)->format('N');
+        if ($test==$i){?>
+          <tr>
+            <td>Nom = <?= h($showtime->movie->name ) ?><br>
+            Heure déb = <?= h($showtime->start->format('H:i')) ?><br>
+            Heure fin = <?= h($showtime->end->format('H:i')) ?><br>
+            Durée = <?= h($showtime->movie->duration ) ?> min<br>
+          </tr>
+        <?php }?>
+        <?php endforeach;  ?>
+    </table>
+    </td> 
+    <?php } ?>
+     </td>
+    </table>
+        
+        
+        
     </div>
